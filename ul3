@@ -1,0 +1,35 @@
+import pygame
+import sys
+pygame.init()
+
+#värvid
+lGreen = [153, 255, 153]
+
+#ekraani seaded
+screen=pygame.display.set_mode([640,480])
+pygame.display.set_caption("ÜL 3 - Reigo Raudsepp")
+screen.fill(lGreen)
+
+
+def draw_squares(size, rows, columns, color): # funktsioonil on 4 sisendit: suurus, read, veerud ja ruutude värv.
+    for row in range(rows):  # Loob soovitud arv ruutude ridu ja veerge.
+        for column in range(columns): # 
+            square = pygame.Rect(column * size, row * size, size, size)
+            pygame.draw.rect(screen, color, square, 1)
+
+draw_squares(20, 24, 32, (255, 0, 0)) # 4 sisendit: suurus, read, veerud ja ruutude värv.
+
+pygame.display.flip() # värskendab akna
+
+#mängu sulgemine ristist
+for i in pygame.event.get():
+    if i.type == pygame.QUIT:
+        sys.exit()
+
+run = True # loop, et ekraan püsiks
+while run:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run =False
+
+pygame.quit()

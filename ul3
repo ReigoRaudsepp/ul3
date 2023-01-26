@@ -13,15 +13,15 @@ screen.fill(lGreen)
 
 def draw_squares(size, rows, columns, color): # funktsioonil on 4 sisendit: suurus, read, veerud ja ruutude värv.
     for row in range(rows):  # Loob soovitud arv ruutude ridu ja veerge.
-        for column in range(columns): # 
-            square = pygame.Rect(column * size, row * size, size, size)
-            pygame.draw.rect(screen, color, square, 1)
+        for column in range(columns): # Funktsioon kasutab kahte pesastatud silmust soovitud arvu ridade ja ruutude veergude loomiseks
+            square = pygame.Rect(column * size, row * size, size, size) # funktsioon loob Pygame Rect klassi abil ruudu
+            pygame.draw.rect(screen, color, square, 1) # paneb ruudud ekraanile ja annab värvi
 
 draw_squares(20, 24, 32, (255, 0, 0)) # 4 sisendit: suurus, read, veerud ja ruutude värv.
 
 pygame.display.flip() # värskendab akna
 
-#mängu sulgemine ristist
+# mängu sulgemine ristist
 for i in pygame.event.get():
     if i.type == pygame.QUIT:
         sys.exit()
